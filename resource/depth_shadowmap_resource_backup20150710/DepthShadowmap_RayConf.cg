@@ -1,0 +1,69 @@
+// RayConf with shadowmap
+
+void receiverVP(	float4 			pos_obj			: POSITION,	// ( must have a POSITION output in vertex program
+					float4 			nml_obj			: NORMAL,
+				 
+					out float4 		out_pos			: POSITION,
+					out float4 		out_shadow_uv	: TEXCOORD0,
+					out float4 		out_rayconf		: TEXCOORD1,
+					out float4		out_check		: COLOR,
+				 
+					uniform float4x4 	world_mat,
+					uniform float4x4 	it_world_mat,
+					uniform float4x4	it_world_view_mat,
+					uniform float4x4	world_view_mat,
+					uniform float4x4 	proj_mat,
+					uniform float4x4 	tex_view_proj_mat,
+					uniform float4 		light_pos )				//light position in world space
+{
+	// current vertex position in world space
+	float4 pos_wld = mul( world_mat, pos_obj );   
+	// current vertex position in camera space 
+    float4 pos_cam = mul( world_view_mat, pos_obj );
+	// current vertex normal in world space
+	float4 nml_wld = mul( it_world_mat, nml_obj );
+	// current vertex normal in camera space
+	float4 nml_cam = mul( it_world_view_mat, nml_obj );
+
+	// light direction vector
+	float3 light_dir = normalize( light_pos.xyz - ( pos_wld.xyz * light_pos.w ) );
+	// confidence on current vertex
+    float conf = dot( normalize( -pos_cam.xyz ), normalize( nml_cam.xyz ) );
+
+	// output position for current vertex  ( must have a POSITION output in vertex program
+	out_pos     = mul( proj_mat, pos_cam );
+
+	//	ray and confidence
+	out_rayconf = float4( pos_cam.xyz, conf );
+	// check whether light can reach current vertex
+	out_check = ( dot( light_dir, nml_wld.xyz ) > 0 ) ? float4( 1, 1, 1, 1 ) : float4( 0, 0, 0, 0 );
+
+    // calculate shadow map coords
+    out_shadow_uv = mul( tex_view_proj_mat, pos_wld );	// current vertex in "light view"
+
+
+
+
+}
+ 
+void receiverFP(	//float4 		position	: POSITION,
+					float4 		shadow_uv	: TEXCOORD0,
+					float4 		rayconf		: TEXCOORD1,
+					float4		check		: COLOR,
+				 
+					out float4	result		: COLOR,
+
+					uniform sampler2D	shadowMap 		: register( s0 ),		// take sameple from texture unit
+					uniform float 		fixedDepthBias )
+{
+    // point on shadowmap
+    shadow_uv = shadow_uv / shadow_uv.w;
+
+	// get depth in shadow map
+    float centerdepth = tex2D( shadowMap, shadow_uv.xy ).x;	// shadow map's pixel format is PF_FLOAT32_R, only r channel (x channel) have value
+	float finalCenterDepth = centerdepth + fixedDepthBias;
+
+	// check depth shadow map
+	result = ( finalCenterDepth > shadow_uv.z && check.x >= 0.5 ) ? rayconf : float4( 0, 0, 0, -1 );
+}
+

@@ -1,0 +1,66 @@
+19:44:19 **** Incremental Build of configuration Debug for project arm_control_AR605 ****
+make all 
+Building file: ../arm_control.cpp
+Invoking: GCC C++ Compiler
+g++ -fPIC -std=c++0x -std=c++11 -I/usr/local/gazebo-7/include/gazebo-7 -I/home/kevin/research/gazebo/msgs/include -I/usr/local/sdformat/include/sdformat-4.2 -I/usr/local/ignition/include/ignition/math2 -I/usr/local/pcl-1-8/include/pcl-1.8 -I/usr/local/ogre-1-9/include/OGRE -I/usr/local/kdl/include -I/usr/include/eigen3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"arm_control.d" -MT"arm_control.d" -o "arm_control.o" "../arm_control.cpp"
+../arm_control.cpp:103:51: warning: "/*" within comment [-Wcomment]
+      server.sin_addr.s_addr = inet_addr(IP.c_str()/*ip*///);
+ ^
+../arm_control.cpp: In member function ‘void ListAllModel::Update()’:
+../arm_control.cpp:183:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if( world->GetModelCount() != num_model_on_field ) // if 在場上的 model 數量有變化
+                              ^
+../arm_control.cpp: In member function ‘int TrajectoryPlanning::Calculate_beta(gazebo::math::Pose, gazebo::math::Pose, gazebo::transport::PublisherPtr&, float, int)’:
+../arm_control.cpp:903:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=1; i<ang_list.size()-1; i++)
+                 ^
+../arm_control.cpp:866:7: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+   int retval=1;//,count=0;
+       ^
+../arm_control.cpp:920:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+../arm_control.cpp: In member function ‘int TrajectoryPlanning::Calculate_OnTable(gazebo::math::Pose, gazebo::math::Pose, float, int)’:
+../arm_control.cpp:1086:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=1;i<ang_list.size()-1;i++)
+                ^
+../arm_control.cpp: In member function ‘int TrajectoryPlanning::Calculate_PutOnTable(gazebo::math::Pose, gazebo::math::Pose, float, int)’:
+../arm_control.cpp:1290:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=0;i<ang_list.size();i++)
+                ^
+../arm_control.cpp: In member function ‘void AlongTrajectory::Update()’:
+../arm_control.cpp:1762:42: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if( movetoptr->HasReached() && nth_step!=(ang_list.size()-1) )
+                                          ^
+../arm_control.cpp:1780:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if( nth_step < (ang_list.size()-1) )
+                 ^
+../arm_control.cpp:1786:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if( nth_step == (ang_list.size()-1) )
+                 ^
+../arm_control.cpp: In member function ‘int KDL_IK::CalculateIK(float, float, float)’:
+../arm_control.cpp:2013:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+../arm_control.cpp: In member function ‘void Arm_Control::EmergencyStop()’:
+../arm_control.cpp:2304:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for(int i=0;i<world->GetModelCount();i++)
+                ^
+../arm_control.cpp: In member function ‘int TrajectoryPlanning::Calculate_OnTable(gazebo::math::Pose, gazebo::math::Pose, float, int)’:
+../arm_control.cpp:1111:2: warning: control reaches end of non-void function [-Wreturn-type]
+  }
+  ^
+../arm_control.cpp: In member function ‘int TrajectoryPlanning::Calculate_PutOnTable(gazebo::math::Pose, gazebo::math::Pose, float, int)’:
+../arm_control.cpp:1305:2: warning: control reaches end of non-void function [-Wreturn-type]
+  }
+  ^
+Finished building: ../arm_control.cpp
+ 
+Building target: libarm_control_AR605.so
+Invoking: GCC C++ Linker
+g++ -Wl,--no-undefined -L/home/kevin/research/gazebo/msgs/lib -L/usr/local/ogre-1-9/lib -L/usr/local/ogre-1-9/lib/OGRE -L/usr/local/pcl-1-8/lib -L/usr/local/opencv-2-4-10/lib -L/usr/local/gazebo-7/lib/x86_64-linux-gnu -L/usr/local/freetype-2-6/lib -L/usr/local/sdformat/lib/x86_64-linux-gnu -L/usr/local/kdl/lib -shared -o "libarm_control_AR605.so"  ./arm_control.o   -lpcl_io -lpcl_kdtree -lpcl_sample_consensus -lpcl_registration -lpcl_filters -lpcl_features -lpcl_common -lpcl_keypoints -lpcl_search -lpcl_visualization -lgazebo -lgazebo_msgs -lgazebo_transport -lgazebo_math -lgazebo_sensors -lgazebo_rendering -lgazebo_common -lgazebo_physics -lopencv_highgui -lopencv_imgproc -lopencv_core -lopencv_video -lprotobuf -lOgreMain -lOIS -lfreetype -lpose_estimation_result -lpoint_type -lmatrix -lpoint_cloud -lsdformat -lboost_thread -lboost_system -lboost_filesystem -lboost_date_time -lorocos-kdl
+Finished building target: libarm_control_AR605.so
+ 
+
+19:44:26 Build Finished (took 7s.25ms)
+

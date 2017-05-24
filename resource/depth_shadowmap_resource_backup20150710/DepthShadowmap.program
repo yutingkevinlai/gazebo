@@ -1,0 +1,103 @@
+vertex_program Ogre/DepthShadowmap/CasterVP cg
+{
+    source DepthShadowmap_Caster.cg
+    entry_point casterVP
+    profiles arbvp1 vs_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0
+ 
+    default_params
+    {
+        param_named_auto worldViewProj worldviewproj_matrix
+        param_named_auto texelOffsets texel_offsets
+        //param_named_auto depthRange scene_depth_range
+    }
+}
+ 
+fragment_program Ogre/DepthShadowmap/CasterFP cg
+{
+    source DepthShadowmap_Caster.cg
+    entry_point casterFP
+    profiles arbfp1 ps_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0
+ 
+    default_params
+    {
+    }
+}
+ 
+vertex_program Ogre/DepthShadowmap_Depth/ReceiverVP cg
+{
+    source DepthShadowmap_Depth.cg
+    entry_point receiverVP
+    profiles arbvp1 vs_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0
+ 
+    default_params
+    {
+		param_named_auto world_mat					world_matrix
+		param_named_auto it_world_mat 			inverse_transpose_world_matrix
+		param_named_auto world_view_proj_mat	worldviewproj_matrix
+		param_named_auto world_view_mat			worldview_matrix
+		param_named_auto tex_view_proj_mat		texture_viewproj_matrix
+		param_named_auto light_pos 				light_position 0
+		param_named_auto camera_pos 				camera_position
+		param_named_auto near_clip 				near_clip_distance
+		param_named_auto far_clip					far_clip_distance
+    }
+}
+ 
+fragment_program Ogre/DepthShadowmap_Depth/ReceiverFP cg
+{
+    source DepthShadowmap_Depth.cg
+    entry_point receiverFP
+    profiles arbfp1 ps_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0 -DFUZZY_TEST=0 -DPCF=0
+ 
+    default_params
+    {
+   //     param_named inverseShadowmapSize float 0.0009765625
+        param_named fixedDepthBias float 0.001
+   //     param_named gradientClamp float 0.0098
+  //      param_named gradientScaleBias float 0
+        //param_named shadowFuzzyWidth float 1
+    }
+}
+
+vertex_program Ogre/DepthShadowmap_RayConf/ReceiverVP cg
+{
+    source DepthShadowmap_RayConf.cg
+    entry_point receiverVP
+    profiles arbvp1 vs_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0
+ 
+    default_params
+    {
+        param_named_auto world_mat 				world_matrix
+        param_named_auto it_world_mat 			inverse_transpose_world_matrix
+        param_named_auto it_world_view_mat		inverse_transpose_worldview_matrix
+		param_named_auto world_view_mat			worldview_matrix
+        param_named_auto proj_mat				projection_matrix
+        param_named_auto tex_view_proj_mat		texture_viewproj_matrix
+        param_named_auto light_pos				light_position 					0
+    }
+}
+ 
+fragment_program Ogre/DepthShadowmap_RayConf/ReceiverFP cg
+{
+    source DepthShadowmap_RayConf.cg
+    entry_point receiverFP
+    profiles arbfp1 ps_3_0
+ 
+    compile_arguments -DLINEAR_RANGE=0 -DFUZZY_TEST=0 -DPCF=0
+ 
+    default_params
+    {
+        param_named fixedDepthBias float 0.001
+    }
+}
+

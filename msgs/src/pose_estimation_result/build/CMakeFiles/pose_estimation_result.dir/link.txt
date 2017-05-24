@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC    -shared -Wl,-soname,libpose_estimation_result.so -o libpose_estimation_result.so CMakeFiles/pose_estimation_result.dir/pose_estimation_result.pb.cc.o -lprotobuf 

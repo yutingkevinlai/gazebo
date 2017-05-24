@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name='socket'>
+<!--<static>true</static>-->
+		<pose> 0 0 0 0 0 0 </pose>
+		<link name="link">
+			<inertial>
+				<mass> 0.1 </mass>
+				<pose> 0 0 0.00021547 0 0 0 </pose>
+				<inertia>
+					<ixx> 0.000024082 </ixx>
+					<ixy> 0 </ixy>
+					<ixz> 0 </ixz>
+					<iyy> 0.000024082 </iyy>
+					<iyz> 0 </iyz>
+					<izz> 0.00001900477 </izz>
+				</inertia>
+			</inertial> 
+
+			<collision name="collision">
+				<geometry>
+					<mesh>
+						<uri> /home/eric/worksapce_tony/Arm_Control2/model/socket_simple/meshes/socket_0_045m_simple.dae </uri>
+						<scale> 1 1 1 </scale>
+					</mesh>
+				</geometry>
+				<surface>
+					<bounce>
+						<restitution_coefficient> 0.1 </restitution_coefficient>
+					</bounce>
+					<friction>
+						<ode>
+							<mu> 0.9 </mu>
+							<mu2> 0.9 </mu2>
+						</ode>
+					</friction>
+					
+<!--					<contact>
+						<ode>
+							<kd> 10 </kd>
+						</ode>
+					</contact>-->
+				</surface>
+			</collision>
+
+			<visual name="visual">
+				<material>
+					<ambient> 0.71 0.506 0.2627 1 </ambient>
+					<diffuse> 0.71 0.506 0.2627 1 </diffuse>
+			<!--		<specular> 0 0 0 1 </specular> -->
+				</material>
+				<geometry>
+					<mesh>
+						<uri> /home/eric/worksapce_tony/Arm_Control2/model/socket_simple/meshes/socket_0_045m_simple.dae </uri>
+						<scale> 1 1 1 </scale>
+					</mesh>
+				</geometry>
+			</visual>
+
+		</link>
+	</model>
+</sdf>

@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC    -shared -Wl,-soname,libpoint_cloud.so -o libpoint_cloud.so CMakeFiles/point_cloud.dir/point_cloud.pb.cc.o CMakeFiles/point_cloud.dir/point_type.pb.cc.o libpoint_type.so -lprotobuf -Wl,-rpath,/home/kevin/research/gazebo/msgs/src/pcl_point_cloud/build 

@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="2link_send">
+    
+
+    <link name="link1">
+		<self_collide> true </self_collide>
+
+		<pose>0 0 1 0 0 0</pose>
+			<inertial>
+				<mass> 20 </mass>
+			</inertial> 
+			<collision name="collision1">
+        <geometry>
+          <box>
+            <size>0.3 0.3 2</size>
+          </box>
+        </geometry>
+
+      </collision>
+      <visual name="visual1">
+        <geometry>
+          <box>
+            <size>0.3 0.3 2</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+<!--joint_1_2-->
+
+
+		<joint name="link1_to_link2" type="ball">
+      <pose>0 0 1 0 0 0</pose>
+      <child>link2</child>
+      <parent>link1</parent>
+      <axis>
+
+      	<xyz>0 1 0</xyz>
+     	</axis>
+    </joint>
+
+<!--link2-->
+	
+    <link name="link2">
+		<self_collide> true </self_collide>
+		<pose>0 1 2.1 1.58 0 0</pose>
+			<inertial>
+				<mass> 0.1 </mass>
+			</inertial> 
+			<collision name="collision2">
+        <geometry>
+          <box>
+            <size>0.2 0.2 2</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual2">
+        <geometry>
+          <box>
+            <size>0.2 0.2 2</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+
+
+
+<plugin name="libmodel_plugin" filename="/home/gotony5614/Dropbox/gazebo/gazebo_plugin_tutorial/modelplugin_send/Debug/libmodelplugin_send.so"/>
+
+  </model>    
+</sdf>

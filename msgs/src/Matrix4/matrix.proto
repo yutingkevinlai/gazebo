@@ -1,0 +1,6 @@
+package my.msgs;
+
+message Matrix4
+{
+	repeated float data = 1 [packed=true];
+}

@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+    <model name="gripper">
+		
+
+       <link name="palm">
+            <pose>0 0 2.125 0 0 0 </pose>
+            <inertial>
+                <mass>.2</mass>
+            </inertial>
+            <collision name="collision">
+			
+
+        <surface>
+					<bounce>
+						<restitution_coefficient>0</restitution_coefficient>
+					</bounce>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+                <geometry>
+                    <box>
+                        <size>1.5 3 0.25</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>1.5 3 0.25</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <link name="right_finger">
+            <pose>0 1.375 1 0  0 0 </pose>
+            <inertial>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+			
+
+        <surface>
+					<bounce>
+						<restitution_coefficient>0</restitution_coefficient>
+					</bounce>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+                <geometry>
+														<sphere>	<radius>0.25</radius>	</sphere>
+                   <!-- <box>
+                        <size>1 0.25 2</size>
+                    </box>-->
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+									<sphere>	<radius>0.25</radius>	</sphere>
+                   <!-- <box>
+                        <size>1 0.25 2</size>
+                    </box>-->
+                </geometry>
+            </visual>
+        </link>
+
+
+        <link name="left_finger">
+            <pose>0 -1.375 1 0  0 0 </pose>
+            <inertial>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+
+        <surface>
+					<bounce>
+						<restitution_coefficient>0</restitution_coefficient>
+					</bounce>
+          <friction>
+            <ode>
+              <mu>100000.0</mu>
+              <mu2>100000.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+                <geometry>
+									<sphere>	<radius>0.25</radius>	</sphere>
+                   <!-- <box>
+                        <size>1 0.25 2</size>
+                    </box>-->
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+									<sphere>	<radius>0.25</radius>	</sphere>
+                   <!-- <box>
+                        <size>1 0.25 2</size>
+                    </box>-->
+                </geometry>
+            </visual>
+        </link>
+
+
+				<joint name="joint1" type="prismatic">
+            <pose>0  0 1 0 0 0</pose>
+            <child>right_finger</child>
+            <parent>palm</parent>
+            <axis>
+                <xyz>0 1 0</xyz>
+								<limit><lower>-1.25</lower><upper>0</upper></limit>
+            </axis>
+        </joint>
+
+
+
+        <joint name="joint2" type="prismatic">
+            <pose>0 0 1 0 0 0</pose>
+            <child>left_finger</child>
+            <parent>palm</parent>
+            <axis>
+							<xyz>0 1 0 </xyz>
+							<limit><lower>0</lower><upper>1.25</upper></limit>
+						</axis>
+        </joint>
+
+
+		<plugin name="df" filename="/home/gotony5614/Dropbox/gazebo/grippertest/grippertest/dist/Debug/GNU-Linux-x86/libgrippertest.so"/>
+
+
+
+    </model>
+</sdf>

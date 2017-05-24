@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+	<world name="default">
+		<physics type="ode">
+			<!--   increase this to speed up physics = = -->
+			<real_time_update_rate> 1000 </real_time_update_rate>
+		</physics>
+
+		<include>
+			<uri>model://ground_plane</uri>
+		</include>
+
+<!--		<scene>
+			<ambient> 0 0 0 1 </ambient>
+			<background> 0 0 0 1 </background>
+		</scene>-->
+
+
+		<!-- Light Source -->
+		<light type="directional" name="sun">
+			<cast_shadows>true</cast_shadows>
+
+			<pose>0 0 10 0 0 0</pose>
+<!--			<diffuse>0.8 0.8 0.8 1</diffuse>-->
+			<diffuse> 0.8 0.8 0.8 1 </diffuse>
+<!--			<specular>1.0 1.0 1.0 1</specular> -->
+
+			<attenuation>
+				<range>1000</range>
+				<constant>0.9</constant>
+				<linear>0.01</linear>
+				<quadratic>0.001</quadratic>
+			</attenuation>
+
+			<direction>-0.5 0.1 -0.9</direction>
+		</light>
+
+<!--		<include>
+			<uri>./models/ogrehead</uri>
+			<pose> 0 0 10 0 0 0 </pose>
+		</include>-->
+
+		<include>
+			<uri>/home/kevin/research/gazebo/depth_sensor/models/depth_sensor</uri>
+				<pose> 0 0 0.8 0 1.570796327 1.570796327 </pose>
+<!--			<pose> 0 -0.230 0.810 0 1.274090354 1.570796327 </pose> -->
+		</include>
+
+		
+		<plugin name="evaluation_platform_plugin" filename="/home/kevin/research/gazebo/evaluation_platform/Debug/libevaluation_platform.so"/> 
+	</world>
+</sdf>

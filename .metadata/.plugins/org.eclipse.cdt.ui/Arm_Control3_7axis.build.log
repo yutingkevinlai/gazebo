@@ -1,0 +1,56 @@
+20:48:58 **** Build of configuration Debug for project Arm_Control3_7axis ****
+make all 
+Building file: ../Arm_Control3_7axis.cpp
+Invoking: GCC C++ Compiler
+g++ -fPIC -std=c++0x -std=c++11 -I/usr/local/gazebo-7/include/gazebo-7 -I/home/kevin/research/gazebo/msgs/include -I/usr/local/sdformat/include/sdformat-4.2 -I/usr/local/ignition/include/ignition/math2 -I/usr/local/pcl-1-8/include/pcl-1.8 -I/usr/local/ogre-1-9/include/OGRE -I/usr/local/kdl/include -I/usr/include/eigen3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Arm_Control3_7axis.d" -MT"Arm_Control3_7axis.d" -o "Arm_Control3_7axis.o" "../Arm_Control3_7axis.cpp"
+../Arm_Control3_7axis.cpp: In member function ‘void ListAllModel::Update()’:
+../Arm_Control3_7axis.cpp:115:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (world->GetModelCount() != num_model_on_field)    //在場上的的modell數量有變化
+                             ^
+../Arm_Control3_7axis.cpp: In member function ‘int TrajectoryPlanning::Calculate_RCL(Six_Ang, gazebo::math::Pose)’:
+../Arm_Control3_7axis.cpp:675:15: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+  char *buffer="\0";
+               ^
+../Arm_Control3_7axis.cpp:632:6: warning: unused variable ‘num_point’ [-Wunused-variable]
+  int num_point = 100;
+      ^
+../Arm_Control3_7axis.cpp:699:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+../Arm_Control3_7axis.cpp: In member function ‘int TrajectoryPlanning::Calculate_beta(gazebo::math::Pose, gazebo::math::Pose)’:
+../Arm_Control3_7axis.cpp:772:6: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval = 1, count = 0;
+      ^
+../Arm_Control3_7axis.cpp:772:18: warning: unused variable ‘count’ [-Wunused-variable]
+  int retval = 1, count = 0;
+                  ^
+../Arm_Control3_7axis.cpp:805:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+../Arm_Control3_7axis.cpp: In member function ‘void AlongTrajectory::Update()’:
+../Arm_Control3_7axis.cpp:917:42: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (movetoptr->HasReached() && nth_step < ang_list.size())
+                                          ^
+../Arm_Control3_7axis.cpp:927:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   if (nth_step == (ang_list.size()))
+                ^
+../Arm_Control3_7axis.cpp: In member function ‘int KDL_IK::CalculateIK(float, float, float)’:
+../Arm_Control3_7axis.cpp:1085:6: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+  int retval, count = 0;
+      ^
+../Arm_Control3_7axis.cpp:1085:14: warning: unused variable ‘count’ [-Wunused-variable]
+  int retval, count = 0;
+              ^
+../Arm_Control3_7axis.cpp:1126:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Finished building: ../Arm_Control3_7axis.cpp
+ 
+Building target: libArm_Control3_7axis.so
+Invoking: GCC C++ Linker
+g++ -Wl,--no-undefined -L/home/kevin/research/gazebo/msgs/lib -L/usr/local/ogre-1-9/lib -L/usr/local/ogre-1-9/lib/OGRE -L/usr/local/pcl-1-8/lib -L/usr/local/opencv-2-4-10/lib -L/usr/local/gazebo-7/lib/x86_64-linux-gnu -L/usr/local/freetype-2-6/lib -L/usr/local/sdformat/lib/x86_64-linux-gnu -L/usr/local/kdl/lib -shared -o "libArm_Control3_7axis.so"  ./Arm_Control3_7axis.o   -lpcl_io -lpcl_kdtree -lpcl_sample_consensus -lpcl_registration -lpcl_filters -lpcl_features -lpcl_common -lpcl_keypoints -lpcl_search -lpcl_visualization -lgazebo -lgazebo_msgs -lgazebo_transport -lgazebo_math -lgazebo_sensors -lgazebo_rendering -lgazebo_common -lgazebo_physics -lopencv_highgui -lopencv_imgproc -lopencv_core -lopencv_video -lprotobuf -lOgreMain -lOIS -lfreetype -lpose_estimation_result -lpoint_type -lmatrix -lpoint_cloud -lsdformat -lboost_thread -lboost_system -lboost_filesystem -lboost_date_time -lorocos-kdl
+Finished building target: libArm_Control3_7axis.so
+ 
+
+20:49:05 Build Finished (took 7s.36ms)
+

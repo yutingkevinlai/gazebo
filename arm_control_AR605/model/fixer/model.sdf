@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+
+ <model name="fixer">
+         <static>true</static>
+         <link name="fixer">
+            <pose>-0.122807 0.000000 0.070175 0.000000 0.000000 0.000000</pose>
+            <inertial>
+               <mass>.1</mass>
+               <inertia>
+                  <ixx>0.05</ixx>
+                  <ixy>0.0</ixy>
+                  <iyy>0.05</iyy>
+                  <ixz>0.0</ixz>
+                  <iyz>0.0</iyz>
+                  <izz>0.05</izz>
+               </inertia>
+            </inertial>
+            <collision name="fixer">
+               <surface>
+                  <friction>
+                     <ode>
+                        <mu>100000.0</mu>
+                        <mu2>100000.0</mu2>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                     </ode>
+                  </friction>
+               </surface>
+               <geometry>
+                  <box>
+                     <size>0.035088 0.210526 0.140351</size>
+                  </box>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <box>
+                     <size>0.035088 0.210526 0.140351</size>
+                  </box>
+               </geometry>
+            </visual>
+         </link>
+         <link name="fixefr">
+            <pose>0.000000 0.122807 0.070175 0.000000 0.000000 0.000000</pose>
+            <inertial>
+               <mass>.1</mass>
+               <inertia>
+                  <ixx>0.05</ixx>
+                  <ixy>0.0</ixy>
+                  <iyy>0.05</iyy>
+                  <ixz>0.0</ixz>
+                  <iyz>0.0</iyz>
+                  <izz>0.05</izz>
+               </inertia>
+            </inertial>
+            <collision name="fixer">
+               <surface>
+                  <friction>
+                     <ode>
+                        <mu>100000.0</mu>
+                        <mu2>100000.0</mu2>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                     </ode>
+                  </friction>
+               </surface>
+               <geometry>
+                  <box>
+                     <size>0.210526 0.035088 0.140351</size>
+                  </box>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <box>
+                     <size>0.210526 0.035088 0.140351</size>
+                  </box>
+               </geometry>
+            </visual>
+         </link>
+         <link name="fixger">
+            <pose>0.122807 0.000000 0.070175 0.000000 0.000000 0.000000</pose>
+            <inertial>
+               <mass>.1</mass>
+               <inertia>
+                  <ixx>0.05</ixx>
+                  <ixy>0.0</ixy>
+                  <iyy>0.05</iyy>
+                  <ixz>0.0</ixz>
+                  <iyz>0.0</iyz>
+                  <izz>0.05</izz>
+               </inertia>
+            </inertial>
+            <collision name="fixer">
+               <surface>
+                  <friction>
+                     <ode>
+                        <mu>100000.0</mu>
+                        <mu2>100000.0</mu2>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                     </ode>
+                  </friction>
+               </surface>
+               <geometry>
+                  <box>
+                     <size>0.035088 0.210526 0.140351</size>
+                  </box>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <box>
+                     <size>0.035088 0.210526 0.140351</size>
+                  </box>
+               </geometry>
+            </visual>
+         </link>
+         <link name="fihxer">
+            <pose>0.000000 -0.122807 0.070175 0.000000 0.000000 0.000000</pose>
+            <inertial>
+               <mass>.1</mass>
+               <inertia>
+                  <ixx>0.05</ixx>
+                  <ixy>0.0</ixy>
+                  <iyy>0.05</iyy>
+                  <ixz>0.0</ixz>
+                  <iyz>0.0</iyz>
+                  <izz>0.05</izz>
+               </inertia>
+            </inertial>
+            <collision name="fixer">
+               <surface>
+                  <friction>
+                     <ode>
+                        <mu>100000.0</mu>
+                        <mu2>100000.0</mu2>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                     </ode>
+                  </friction>
+               </surface>
+               <geometry>
+                  <box>
+                     <size>0.210526 0.035088 0.140351</size>
+                  </box>
+               </geometry>
+            </collision>
+            <visual name="visual">
+               <geometry>
+                  <box>
+                     <size>0.210526 0.035088 0.140351</size>
+                  </box>
+               </geometry>
+            </visual>
+         </link>
+      </model>
+</sdf>
+

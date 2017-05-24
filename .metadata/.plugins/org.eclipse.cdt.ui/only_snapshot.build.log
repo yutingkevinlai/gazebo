@@ -1,0 +1,7 @@
+19:46:41 **** Clean-only build of configuration Debug for project only_snapshot ****
+make clean 
+rm -rf  ./evaluation_platform.o  ./evaluation_platform.d  libonly_snapshot.so
+ 
+
+19:46:41 Build Finished (took 58ms)
+

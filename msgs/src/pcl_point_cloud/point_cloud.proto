@@ -1,0 +1,18 @@
+package pcl.msgs;
+import "point_type.proto";
+
+message PointCloud
+{
+	required uint32				width  = 1;
+	required uint32 			height = 2;
+	required bool				is_dense = 3;
+	repeated pcl.msgs.PointXYZ 	points = 4;
+}
+
+message PointCloudXYZL
+{
+	required uint32				width  = 1;
+	required uint32 			height = 2;
+	required bool				is_dense = 3;
+	repeated pcl.msgs.PointXYZL points = 4;
+}

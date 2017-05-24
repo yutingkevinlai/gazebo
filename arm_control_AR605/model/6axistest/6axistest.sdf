@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.4">
+  <model name="6axistest">
+    <link name="base">
+      <pose>0.000000 0.000000 0.175439 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>2000</mass>
+            <inertia>
+               <ixx>2600</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2600</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>4000</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.105263 </radius>
+            <length>0.350877</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.105263 </radius>
+            <length>0.350877</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_base_1-->
+    <joint name="joint1" type="revolute">
+      <pose>0.000000 0.000000 -0.017544 0.000000 0.000000 0.000000</pose>
+      <child>link1_1</child>
+      <parent>base</parent>
+      <axis>
+        <dynamics>
+          <friction>500</friction>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link1_1">
+      <pose>0.000000 0.000000 0.368421 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.105263 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.105263 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link1_2_to_link1_1" type="revolute">
+      <pose>0.000000 0.000000 -0.105263 0.000000 0.000000 0.000000</pose>
+      <child>link1_2</child>
+      <parent>link1_1</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link1_2">
+      <pose>0.000000 -0.070175 0.491228 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.210526</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.210526</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_1_2-->
+    <joint name="joint2" type="revolute">
+      <pose>0.000000 0.000000 0.052632 0.000000 0.000000 0.000000</pose>
+      <child>link2_1</child>
+      <parent>link1_2</parent>
+      <axis>
+        <dynamics>
+          <friction>50000</friction>
+        </dynamics>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <link name="link2_1">
+      <pose>0.000000 0.000000 0.596491 1.570800 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.105263</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.105263</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link2_1_to_link2_2" type="revolute">
+      <pose>0.000000 0.000000 -0.052632 0.000000 0.000000 0.000000</pose>
+      <child>link2_1</child>
+      <parent>link2_2</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link2_2">
+      <pose>0.000000 0.070175 1.052632 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.982456</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.982456</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_2_3-->
+    <joint name="joint3" type="revolute">
+      <pose>0.000000 0.000000 -0.052632 0.000000 0.000000 0.000000</pose>
+      <child>link3_1</child>
+      <parent>link2_2</parent>
+      <axis>
+        <dynamics>
+          <friction>50000</friction>
+        </dynamics>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <link name="link3_1">
+      <pose>0.000000 0.000000 1.438596 1.570800 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.105263</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.105263</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link3_1_to_link3_2" type="revolute">
+      <pose>0.000000 0.000000 0.052632 0.000000 0.000000 0.000000</pose>
+      <child>link3_1</child>
+      <parent>link3_2</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link3_2">
+      <pose>0.000000 -0.070175 1.438596 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.280702</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.175439 0.035088 0.280702</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link3_3_to_link3_2" type="revolute">
+      <pose>0.000000 -0.052632 0.000000 0.000000 0.000000 0.000000</pose>
+      <child>link3_3</child>
+      <parent>link3_2</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link3_3">
+      <pose>0.000000 0.000000 1.561404 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.105263 0.105263 0.035088</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.105263 0.105263 0.035088</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_4_3-->
+    <joint name="joint4" type="revolute">
+      <pose>0.000000 0.000000 -0.368421 0.000000 0.000000 0.000000</pose>
+      <child>link4_1</child>
+      <parent>link3_3</parent>
+      <axis>
+        <xyz>0  0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link4_1">
+      <pose>0.000000 0.000000 1.947368 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.736842</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.736842</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link4_1_to_link4_2" type="revolute">
+      <pose>0.000000 0.000000 -0.070175 0.000000 0.000000 0.000000</pose>
+      <child>link4_2</child>
+      <parent>link4_1</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link4_2">
+      <pose>0.000000 0.035088 2.385965 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.105263 0.035088 0.140351</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.105263 0.035088 0.140351</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_4_5-->
+    <joint name="joint5" type="revolute">
+      <pose>0.000000 0.000000 -0.017544 0.000000 0.000000 0.000000</pose>
+      <child>link5_1</child>
+      <parent>link4_2</parent>
+      <axis>
+        <dynamics>
+          <friction>50000</friction>
+        </dynamics>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <link name="link5_1">
+      <pose>0.000000 0.000000 2.403509 1.570800 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.070175 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link5_2_to_link5_1" type="revolute">
+      <pose>0.000000 0.000000 0.017544 0.000000 0.000000 0.000000</pose>
+      <child>link5_1</child>
+      <parent>link5_2</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link5_2">
+      <pose>0.000000 -0.035088 2.438596 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.9</mass>
+            <inertia>
+               <ixx>4.65</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.7</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>1.8</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <box>
+            <size>0.105263 0.035088 0.105263</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <box>
+            <size>0.105263 0.035088 0.105263</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="link5_2_to_link5_3" type="revolute">
+      <pose>0.000000 0.000000 0.052632 0.000000 0.000000 0.000000</pose>
+      <child>link5_2</child>
+      <parent>link5_3</parent>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link5_3">
+      <pose>0.000000 0.000000 2.508772 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.052632 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.052632 </radius>
+            <length>0.035088</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <!--joint_6_5-->
+    <joint name="joint6" type="revolute">
+      <pose>0.000000 0.000000 -0.114035 0.000000 0.000000 0.000000</pose>
+      <child>link6</child>
+      <parent>link5_3</parent>
+      <axis>
+        <dynamics>
+          <friction>50000</friction>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name="link6">
+      <pose>0.000000 0.000000 2.609649 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>1.5</mass>
+            <inertia>
+               <ixx>2.0</ixx>
+               <ixy>0.0</ixy>
+               <iyy>2.0</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>3.0</izz>
+            </inertia>
+         </inertial>
+      <collision name="Base_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.017544 </radius>
+            <length>0.166667</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0</mu>
+              <mu2>0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="Base_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.017544 </radius>
+            <length>0.166667</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+
+ 		<include>
+		<pose>0.000000 0.000000 2.771930 0.000000 3.141590 0.000000</pose>
+			<uri>/home/kevin/research/gazebo/Arm_Control2/model/gripper</uri>
+		</include>
+
+    <!--joint_6_gripper-->
+    <joint name="joint7" type="revolute">
+      <pose>0.000000 0.000000 0.004386 0.000000 0.000000 0.000000</pose>
+      <child>gripper::plam</child>
+      <parent>link6</parent>
+      <axis>
+         <xyz>0 0 1</xyz>
+         <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+         </limit>
+      </axis>
+   </joint>
+ <plugin name="ccc" filename="/home/kevin/research/gazebo/Arm_Control2/Debug/libArm_Control2.so" />
+
+ <!-- <plugin name="ccc" filename="/home/gotony5614/Dropbox/gazebo/ITRI/Arm_Control_2/dist/Debug/GNU-Linux-x86/libArm_Control_2.so" />
+
+     
+  -->  
+  
+<!--      <include>
+<pose>0.5974 0.783919 0.000000 0.000000 0.000000 0.000000</pose>
+         <uri>/home/kevin/research/gazebo/Arm_Control2/model/table</uri>
+      </include>
+     
+-->
+     
+
+
+  </model>
+</sdf>
+
+
+
+

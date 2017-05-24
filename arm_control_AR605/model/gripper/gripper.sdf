@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.4">
+   <model name="gripper">
+      <link name="plam">
+         <pose>0.000000 0.000000 0.074561 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.1</mass>
+            <inertia>
+               <ixx>0.05</ixx>
+               <ixy>0.0</ixy>
+               <iyy>0.05</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>0.05</izz>
+            </inertia>
+         </inertial>
+         <collision name="collision">
+            <surface>
+               <friction>
+                  <ode>
+                     <mu>100000.0</mu>
+                     <mu2>100000.0</mu2>
+                     <slip1>0.0</slip1>
+                     <slip2>0.0</slip2>
+                  </ode>
+               </friction>
+            </surface>
+            <geometry>
+               <box>
+                  <size>0.052632 0.105263 0.008772</size>
+               </box>
+            </geometry>
+         </collision>
+         <visual name="visual">
+            <geometry>
+               <box>
+                  <size>0.052632 0.105263 0.008772</size>
+               </box>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Red</name>
+               </script>
+            </material>
+         </visual>
+      </link>
+
+      <link name="right_finger">
+	 <!--<pose>0.000000 0.029 0.035088 0.000000 0.000000 0.000000</pose>-->
+         <pose>0.000000 0.029825 0.035088 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.1</mass>
+            <inertia>
+               <ixx>0.05</ixx>
+               <ixy>0.0</ixy>
+               <iyy>0.05</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>0.05</izz>
+            </inertia>
+         </inertial>
+         <collision name="collision">
+            <surface>
+               <bounce>
+                  <restitution_coefficient>0</restitution_coefficient>
+                  <threshold>99999999</threshold>
+               </bounce>
+               <friction>
+                  <ode>
+                     <mu>100000.0</mu>
+                     <mu2>100000.0</mu2>
+                     <slip1>0.0</slip1>
+                     <slip2>0.0</slip2>
+                  </ode>
+               </friction>
+            </surface>
+            <geometry>
+               <mesh>
+                  <scale>0.045614 0.035088 0.035088</scale>
+                  <uri>/home/kevin/research/gazebo/arm_control_AR605/model/gripper/right_finger.dae</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="visual">
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Red</name>
+               </script>
+            </material>
+            <geometry>
+               <mesh>
+                  <scale>0.045614 0.035088 0.035088</scale>
+                  <uri>/home/kevin/research/gazebo/arm_control_AR605/model/gripper/right_finger.dae</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+    
+      <link name="left_finger">
+	 <!--<pose>0.000000 -0.025 0.035088 0.000000 0.000000 0.000000</pose>-->
+         <pose>0.000000 -0.025439 0.035088 0.000000 0.000000 0.000000</pose>
+         <inertial>
+            <mass>.1</mass>
+            <inertia>
+               <ixx>0.05</ixx>
+               <ixy>0.0</ixy>
+               <iyy>0.05</iyy>
+               <ixz>0.0</ixz>
+               <iyz>0.0</iyz>
+               <izz>0.05</izz>
+            </inertia>
+         </inertial>
+         <collision name="collision">
+            <surface>
+               <bounce>
+                  <restitution_coefficient>0</restitution_coefficient>
+                  <threshold>99999999</threshold>
+               </bounce>
+               <friction>
+                  <ode>
+                     <mu>100000.0</mu>
+                     <mu2>100000.0</mu2>
+                     <slip1>0.0</slip1>
+                     <slip2>0.0</slip2>
+                  </ode>
+               </friction>
+            </surface>
+            <geometry>
+               <mesh>
+                  <scale>0.045614 0.035088 0.035088</scale>
+                  <uri>/home/kevin/research/gazebo/arm_control_AR605/model/gripper/left_finger.dae</uri>
+               </mesh>
+            </geometry>
+         </collision>
+         <visual name="visual">
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Blue</name>
+               </script>
+            </material>
+            <geometry>
+               <mesh>
+                  <scale>0.045614 0.035088 0.035088</scale>
+                  <uri>/home/kevin/research/gazebo/arm_control_AR605/model/gripper/left_finger.dae</uri>
+               </mesh>
+            </geometry>
+         </visual>
+      </link>
+     
+      <joint name="right_joint" type="prismatic">
+         <pose>0.000000 0.000000 0.035088 0.000000 0.000000 0.000000</pose>
+         <child>right_finger</child>
+         <parent>plam</parent>
+         <axis>
+            <dynamics>
+               <damping>5</damping>
+               <friction>5</friction>
+            </dynamics>
+            <xyz>0 1 0</xyz>
+            <dynamics>
+               <damping>5</damping>
+               <friction>5</friction>
+            </dynamics>
+            <limit>
+               <lower>-0.0228</lower>
+               <upper>0</upper>
+            </limit>
+         </axis>
+      </joint>
+      <joint name="left_joint" type="prismatic">
+         <pose>0.000000 0.000000 0.035088 0.000000 0.000000 0.000000</pose>
+         <child>left_finger</child>
+         <parent>plam</parent>
+         <axis>
+            <dynamics>
+               <damping>5</damping>
+               <friction>5</friction>
+            </dynamics>
+            <xyz>0 1 0</xyz>
+            <limit>
+               <lower>-0.0085</lower>
+               <upper>0.0208</upper>
+            </limit>
+         </axis>
+      </joint>
+
+      <joint name="glue" type="revolute">
+			<axis>1 0 0</axis>
+         <pose>0.000000 0.000000 0.0 0.000000 0.000000 0.000000</pose>
+         <child>dummy_for_glue</child>
+         <parent>plam</parent>
+      </joint>
+
+
+      <link name="dummy_for_glue">
+         <pose>0.000000 0.0 0.02 0.000000 0.000000 0.000000</pose>
+ 	 <inertial>
+            <mass>.0001</mass>
+         </inertial>
+         <collision name="collision">
+            <geometry>
+               <sphere>
+                  <radius>0.0001</radius>
+               </sphere>
+            </geometry>
+         </collision>
+
+         <visual name="visual">
+            <geometry>
+               <sphere>
+                  <radius>0.001</radius>
+               </sphere>
+            </geometry>
+         </visual>
+      </link>
+
+   </model>
+</sdf>
+

@@ -1,0 +1,480 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+    <model name="gripper1">
+       
+        <link name='palm'>
+            <pose>0.0 0.0 0 0 1.57 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.5</mass>
+            </inertial>
+            <collision name="coll1ision">
+                <geometry>
+                    <cylinder>
+                        <length>0.5</length>
+												<radius>1</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visu1al">
+                <geometry>
+                    <cylinder>
+                        <length>0.5</length>
+												<radius>1</radius>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
+
+
+
+
+
+       <link name="up_finger">
+            <pose>0.95 0 1.7 0 0.785 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+        <link name="up_finger_tip">
+            <pose>2.65 0 2.4  0 1.5707 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+
+
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <link name="down_finger">
+            <pose>0.95 0 -1.7 0 -0.785 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+        <link name="down_finger_tip">
+            <pose>2.65 0 -2.4  0 1.5707 0</pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+
+
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+
+
+
+
+       <link name="left_finger">
+            <pose>0.95  -1.7 0 0 1.57 -0.785 </pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+        <link name="left_finger_tip">
+            <pose>2.65 -2.4  0 0  1.5707 0 </pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+
+
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+
+
+
+       <link name="right_finger">
+            <pose>0.95  1.7 0 0 1.57 0.785 </pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+        <link name="right_finger_tip">
+            <pose>2.65 2.4  0 0  1.5707 0 </pose>
+            <inertial>
+                <inertia>
+                    <ixx>0.01</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.01</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.01</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <cylinder>
+                        <length>2</length>
+												<radius>0.25</radius>
+                    </cylinder>
+                </geometry>
+
+
+                <material>
+                    <script>Gazebo/Green</script>
+                </material>
+            </visual>
+        </link>
+
+
+
+
+
+
+
+
+
+
+
+		<joint name="palm_up_finger" type="revolute">
+            <pose>0  0 -1 0 0 0</pose>
+            <child>up_finger</child>
+            <parent>palm</parent>
+            <axis>
+                
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <joint name="up_finger_tip" type="revolute">
+            <pose>0 0 -1 0 0 0</pose>
+            <child>up_finger_tip</child>
+            <parent>up_finger</parent>
+            <axis>
+                
+                <xyz>0 1 0 </xyz>
+            </axis>
+        </joint>
+     
+
+
+
+
+		<joint name="palm_down_finger" type="revolute">
+            <pose>0  0 1 0 0 0</pose>
+            <child>down_finger</child>
+            <parent>palm</parent>
+            <axis>
+                
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <joint name="down_finger_tip" type="revolute">
+            <pose>0 0 -1 0 0 0</pose>
+            <child>down_finger_tip</child>
+            <parent>down_finger</parent>
+            <axis>
+                
+                <xyz>0 1 0 </xyz>
+            </axis>
+        </joint>
+     
+
+
+
+
+
+
+
+		<joint name="palm_right_finger" type="revolute">
+            <pose>0  0 -1 0 0 0</pose>
+            <child>right_finger</child>
+            <parent>palm</parent>
+            <axis>
+                
+                <xyz>0 1 0</xyz>
+            </axis>
+        </joint>
+        <joint name="right_finger_tip" type="revolute">
+            <pose>0 0 -1 0 0 0</pose>
+            <child>right_finger_tip</child>
+            <parent>right_finger</parent>
+            <axis>
+                
+                <xyz>0 0 1 </xyz>
+            </axis>
+        </joint>
+     
+
+
+
+
+
+
+		<joint name="palm_left_finger" type="revolute">
+            <pose>0  0 -1 0 0 0</pose>
+            <child>left_finger</child>
+            <parent>palm</parent>
+            <axis>
+                
+                <xyz>0 1 0</xyz>
+            </axis>
+        </joint>
+        <joint name="left_finger_tip" type="revolute">
+            <pose>0 0 -1 0 0 0</pose>
+            <child>left_finger_tip</child>
+            <parent>left_finger</parent>
+            <axis>
+                
+                <xyz>0  0 1  </xyz>
+            </axis>
+        </joint>
+     
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+    <joint name="palm_left_finger" type="revolute">
+            <pose>0 -0.15 0 0 0 0</pose>
+            <child>left_finger</child>
+            <parent>palm</parent>
+            <axis>
+                <limit>
+                    <lower>-0.4</lower>
+                    <upper>0.4</upper>
+                </limit>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+        <joint name="left_finger_tip" type="revolute">
+            <pose>0 0.1 0 0 0 0</pose>
+            <child>left_finger_tip</child>
+            <parent>left_finger</parent>
+            <axis>
+                <limit>
+                    <lower>-0.4</lower>
+                    <upper>0.4</upper>
+                </limit>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+     
+        -->
+    </model>
+</sdf>

@@ -1,0 +1,2 @@
+select polished surface ( inside and top & bottom )
+( (z0+z1+z2)/3 > 0.0158 or (z0+z1+z2)/3 < -0.0157 ) or ( (x0+x1+x2)*(x0+x1+x2)/9 + (y0+y1+y2)*(y0+y1+y2)/9 < (0.013 * 0.013) )

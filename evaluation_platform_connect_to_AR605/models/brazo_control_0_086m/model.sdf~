@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+	<model name='brazo_control_0_086m'>
+		<pose> 0 0 0 0 0 0 </pose>
+		<link name="link">
+			<inertial>
+				<mass> 0.10001 </mass>
+				<pose> -0.00295 -0.00818 0 0 0 0 </pose>
+				<inertia>
+					<ixx> 0.00003 </ixx>
+					<ixy> 0.00002 </ixy>
+					<ixz> 0.0 </ixz>
+					<iyy> 0.00006 </iyy>
+					<iyz> 0 </iyz>
+					<izz> 0.00007 </izz>
+				</inertia>
+			</inertial> 
+
+			<collision name="collision">
+				<geometry>
+					<mesh>
+						<uri> /home/kevin/research/gazebo/evaluation_platform/models/brazo_control_0_086m/meshes/brazo_control_0_086m_collision6.dae </uri>
+						<scale> 1 1 1 </scale>
+					</mesh>
+				</geometry>
+				<surface>
+					<bounce>
+						<restitution_coefficient> 0.1 </restitution_coefficient>
+					</bounce>
+					<friction>
+						<ode>
+							<mu> 0.9 </mu>
+							<mu2> 0.9 </mu2>
+						</ode>
+					</friction>
+					
+<!--					<contact>
+						<ode>
+							<kd> 10 </kd>
+						</ode>
+					</contact>-->
+				</surface>
+			</collision>
+
+			<visual name="visual">
+				<material>
+					<ambient> 0.71 0.506 0.2627 1 </ambient>
+					<diffuse> 0.71 0.506 0.2627 1 </diffuse>
+			<!--		<specular> 0 0 0 1 </specular> -->
+				</material>
+				<geometry>
+					<mesh>
+						<uri> /home/kevin/research/evaluation_platform/models/brazo_control_0_086m/meshes/brazo_control_0_086m.dae </uri>
+						<scale> 1 1 1 </scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+	</model>
+</sdf>

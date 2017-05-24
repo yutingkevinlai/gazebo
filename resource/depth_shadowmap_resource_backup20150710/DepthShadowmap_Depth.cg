@@ -1,0 +1,74 @@
+/* This file implements standard programs for depth shadow mapping. 
+   These particular ones are suitable for additive lighting models, and
+   include 3 techniques to reduce depth fighting on self-shadowed surfaces,
+   constant bias, gradient (slope-scale) bias, and a fuzzy shadow map comparison*/
+ 
+void receiverVP(	float4 position				: POSITION,
+					float4 normal				: NORMAL,
+				 
+					out float4 out_pos			: POSITION,
+					out float4 out_color		: COLOR,
+					out float4 out_shadow_uv	: TEXCOORD0,
+					out float4 out_check		: TEXCOORD1,
+				 
+					uniform float4x4	world_mat,	//
+					uniform float4x4	it_world_mat,	//
+					uniform float4x4 	world_view_proj_mat,	//
+					uniform float4x4	world_view_mat,
+					uniform float4x4 	tex_view_proj_mat,	//
+					uniform float4		light_pos,		//light position in world space
+					uniform float4 		camera_pos,
+					uniform float		near_clip,
+					uniform float 		far_clip )
+{
+	// current vertex position in world space
+    float4 pos_wld = mul( world_mat, position );
+ 	// current vertex normal in world space
+    float3 nml_wld = mul( it_world_mat, normal ).xyz;
+	// current vertex position in camera space 
+    float4 pos_cam = mul( world_view_mat, position );
+ 
+	// light direction vector
+    float3 light_dir = normalize( light_pos.xyz - ( pos_wld.xyz * light_pos.w ) );
+	// get depth
+	float depth = abs( pos_cam.z );
+	// normalize depth to range 0 ~ 1,  nearclip->0, farclip->1
+	depth = ( depth - near_clip ) / ( far_clip - near_clip );
+
+	// output position for current vertex  ( must have a POSITION output in vertex program
+    out_pos = mul( world_view_proj_mat, position );
+
+	// lightcolor under light, black when light can't reach
+//	out_color = ( dot( light_dir, nml_wld ) > 0 ) ? float4( depth, depth, depth, depth ) : float4( 1,1,1,1) ;
+	out_color = float4( depth, depth, depth, depth );
+	
+	// check whether light can reach current vertex
+	out_check = ( dot( light_dir, nml_wld.xyz ) > 0 ) ? float4( 1, 1, 1, 1 ) : float4( 0, 0, 0, 0 );
+
+    // calculate shadow map coords
+    out_shadow_uv = mul( tex_view_proj_mat, pos_wld );	// current vertex in "light view"
+}
+ 
+void receiverFP(	float4 position		: POSITION,
+					float4 shadowUV		: TEXCOORD0,
+					float4 check		: TEXCOORD1,		
+					float4 vertexColour	: COLOR,
+				 
+					uniform sampler2D shadowMap : register(s0),		// take sameple from texture unit
+					uniform float fixedDepthBias,
+					uniform float shadowFuzzyWidth,
+				 
+					out float4 result        : COLOR )
+{
+    shadowUV = shadowUV / shadowUV.w;
+
+    float centerdepth = tex2D(shadowMap, shadowUV.xy).x;	// shadow map's pixel format is PF_FLOAT32_R, only r channel (x channel) have value
+ 
+	float finalCenterDepth = centerdepth + (fixedDepthBias);
+  
+	// (finalCenterDepth > shadowUV.z) means object is closer to light( not in shadow)
+    result = (finalCenterDepth > shadowUV.z && check.x >= 0.5 ) ? vertexColour : float4( 1,1,1,1 );
+//	result = ( 40 > shadowUV.z ) ? vertexColour : float4(1,0,0,1);
+
+}
+

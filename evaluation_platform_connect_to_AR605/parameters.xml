@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<!--
+    evaluation platform parameters
+-->
+<evaluation_platform>
+
+	<stacking>
+		<box_model_sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/box/model.sdf </box_model_sdf_file_path>
+		<box_size> 0.21 0.16 0.08 </box_size>
+		<box_wall_thickness> 0.02 </box_wall_thickness>
+
+		<target_model_0>
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/cylinder/model.sdf </sdf_file_path>
+			<proportion> 0 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+	<!--		<rotational_symmetry enable="true">
+				<axis_0 axis="1 0 0">
+					<order> 2 </order>
+					<tolerance_degree> 10 </tolerance_degree>
+					<axis_deviation_threshold> 30 </axis_deviation_threshold>
+				</axis_0>
+				<axis_1 axis="0 1 0">
+					<order> 2 </order>
+					<tolerance_degree> 10 </tolerance_degree>
+					<axis_deviation_threshold> 30 </axis_deviation_threshold>
+				</axis_1>
+			</rotational_symmetry>
+
+			<circular_symmetry enable="true">
+				<axis> 0 0 1 </axis>
+				<axis_deviation_threshold> 30 </axis_deviation_threshold>
+			</circular_symmetry>	-->
+
+			<cylinder_like enable="true">
+				<cylinder_axis> 1 0 0 </cylinder_axis>
+				<axis_deviation_threshold> 30 </axis_deviation_threshold>
+			</cylinder_like>
+
+		</target_model_0>
+
+		<target_model_1>
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/brazo_control_0_086m/model.sdf </sdf_file_path>
+			<proportion> 0 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+		</target_model_1>
+
+		<target_model_2>
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/wrench_0_08m/model.sdf </sdf_file_path>
+			<proportion> 0 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+			<rotational_symmetry enable="true">
+				<axis_0 axis="0 1 0">
+					<order> 2 </order>
+					<tolerance_degree> 10 </tolerance_degree>
+					<axis_deviation_threshold> 30 </axis_deviation_threshold>
+				</axis_0>
+			</rotational_symmetry>
+
+		</target_model_2>
+
+		<target_model_3>
+
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/socket_simple/model.sdf </sdf_file_path>
+			<proportion> 1 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+			<circular_symmetry enable="true">
+				<axis> 0 0 1 </axis>
+				<axis_deviation_threshold> 30 </axis_deviation_threshold>
+			</circular_symmetry>
+
+		</target_model_3>
+
+		<target_model_4>
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/alloy_rod_0_03m/model.sdf </sdf_file_path>
+			<proportion> 0 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+			<cylinder_like enable="true">
+				<cylinder_axis> 1 0 0 </cylinder_axis>
+				<axis_deviation_threshold> 30 </axis_deviation_threshold>
+			</cylinder_like>
+
+		</target_model_4>
+
+		<check_steady_interval> 0.1 </check_steady_interval>
+		<consecutive_steady_threshold> 5 </consecutive_steady_threshold>
+		<linear_vel_threshold> 0.04 </linear_vel_threshold>
+		<width> 3 </width>
+		<height> 3 </height>
+		<layers> 2 </layers>
+		<distance_between_objects> 0.07 </distance_between_objects>
+		<throwing_height> 0.15 </throwing_height>
+	</stacking>
+
+	<attribute>
+		<resimulate_after_fail> true </resimulate_after_fail>
+
+
+	</attribute>
+
+	<log>
+		<path> evaluation_log </path>
+		<error_logging> true </error_logging>
+		<success_logging> true </success_logging>
+	</log>
+
+</evaluation_platform>

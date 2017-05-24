@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+4d80a5e140f2f7fafb9c94158130a0a2 collision_map_request.pb.cc
+bda3069c0ffa203f30fc4eefd2dd5d39 header.pb.cc
+6d1bf889ef1ead2ec3c0e5717e215b2c time.pb.cc
+8365ce4231e0a882cedcdafa82271fa0 vector2d.pb.cc

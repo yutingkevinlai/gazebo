@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+bc66c6c8363e0b6b9ffd3c100383af6c point_cloud.pb.cc
+a91c02aa531a74dbb8683dafed707c26 point_type.pb.cc

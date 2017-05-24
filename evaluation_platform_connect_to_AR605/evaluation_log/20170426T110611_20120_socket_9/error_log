@@ -1,0 +1,26 @@
+[0]
+@Object_Recognized:socket
+@Closest_Object:socket_0
+@Error Euler (degree):42.6511 89.6133 175.106
+@Error Quaternion Axis:-0.672547 0.298131 0.677347
+@Error Quaternion Angle (degree):146.971
+@Error Translation:0.031333 0.035606 -0.023539
+@Error Translation Length:0.0529492
+@Estimate_result:
+-0.963646 0.267152 0.00426198 -0.0670975 
+-0.267138 -0.963653 0.00359734 -0.0163394 
+0.00506806 0.00232802 0.999984 0.0424767 
+0 0 0 1 
+@Sensor_Pose(not sensor model):
+0 0 0.8 4e-06 -0 -1e-06
+@Object_Pose:
+socket_0:-0.031997 -0.055665 0.037466 1.57079 0.743293 1.83657
+ground_plane:0 0 0 0 0 0
+depth_sensor:0 0 0.8 -3e-06 1.57079 1.57079
+table:-0.4 0.4 -0.35 0 0 0
+smalltable:0 0.3 -0.35 0 0 0
+fixer_ar07:-0.5 0 0 0 0 0
+ar6aixs:-0.499848 -0.000315 5e-06 -0.002537 -0.001224 0.001537
+box:0 0 0 0 0 0
+result_visualize_socket:-0.067097 -0.016339 0.042477 0.002328 -0.005068 -2.87117
+

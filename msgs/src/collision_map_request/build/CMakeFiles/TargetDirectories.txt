@@ -1,0 +1,3 @@
+/home/kevin/research/msgs/src/collision_map_request/build/CMakeFiles/edit_cache.dir
+/home/kevin/research/msgs/src/collision_map_request/build/CMakeFiles/rebuild_cache.dir
+/home/kevin/research/msgs/src/collision_map_request/build/CMakeFiles/collision_map_creator_msgs.dir

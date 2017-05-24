@@ -1,0 +1,91 @@
+// Generic Shadow caster material (floating point shadowmap)
+material Ogre/DepthShadowmap/Caster/Float
+{
+    technique
+    {
+        pass 
+        {
+            vertex_program_ref Ogre/DepthShadowmap/CasterVP
+            {
+            }
+            fragment_program_ref Ogre/DepthShadowmap/CasterFP
+            {
+            }
+        }
+    }
+}
+ 
+// Basic materials which support shadows as a seperate scheme
+material Ogre/DepthShadowmap_Depth/BasicTemplateMaterial
+{
+    // This technique supports dynamic shadows
+    technique
+    {
+        // Now do the lighting pass
+        // NB we don't do decal texture here because this is repeated per light
+        pass Lighting
+        {
+            // base colours, not needed for rendering, but as information
+            // to lighting pass categorisation routine
+            ambient 0 0 0 
+            // do this for each light
+            iteration once_per_light spot
+			
+			normalise_normals on
+
+			// scene_blend add
+            // Vertex program reference
+            vertex_program_ref Ogre/DepthShadowmap_Depth/ReceiverVP
+            {
+            }
+            // Fragment program
+            fragment_program_ref Ogre/DepthShadowmap_Depth/ReceiverFP
+            {
+            }
+            texture_unit
+            {
+                content_type shadow
+                tex_address_mode clamp
+                filtering anisotropic
+				max_anisotropy 8
+            }
+        }
+    }
+}
+
+material Ogre/DepthShadowmap_RayConf/BasicTemplateMaterial
+{
+    // This technique supports dynamic shadows
+    technique
+    {
+        // Now do the lighting pass
+        // NB we don't do decal texture here because this is repeated per light
+        pass Lighting
+        {
+            // base colours, not needed for rendering, but as information
+            // to lighting pass categorisation routine
+            ambient 0 0 0 
+            // do this for each light
+            iteration once_per_light spot
+			
+			normalise_normals on
+
+			// scene_blend add
+            // Vertex program reference
+            vertex_program_ref Ogre/DepthShadowmap_RayConf/ReceiverVP
+            {
+            }
+            // Fragment program
+            fragment_program_ref Ogre/DepthShadowmap_RayConf/ReceiverFP
+            {
+            }
+            texture_unit
+            {
+                content_type shadow
+                tex_address_mode clamp
+                filtering anisotropic
+				max_anisotropy 8
+            }
+        }
+    }
+}

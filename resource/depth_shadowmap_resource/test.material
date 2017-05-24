@@ -1,0 +1,19 @@
+material Ogre/TestMaterial
+{
+    // This technique supports dynamic shadows
+    technique
+    {
+      
+        // Now do the lighting pass
+        // NB we don't do decal texture here because this is repeated per light
+        pass Lighting
+        {
+            // base colours, not needed for rendering, but as information
+            // to lighting pass categorisation routine
+            ambient 0.71 0.506 0.2627 
+			diffuse 0.71 0.506 0.2627
+			specular 1 1 1 1 60
+
+		}
+    }
+}

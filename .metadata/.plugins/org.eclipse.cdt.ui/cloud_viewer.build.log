@@ -1,0 +1,15 @@
+17:15:56 **** Build of configuration Debug for project cloud_viewer ****
+make all 
+Building file: ../cloud_viewer.cpp
+Invoking: GCC C++ Compiler
+g++ -fPIC -std=c++11 -I/usr/local/pcl-1-8/include/pcl-1.8 -I/usr/include/eigen3 -I/usr/local/vtk-6-3/include/vtk-6.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"cloud_viewer.d" -MT"cloud_viewer.d" -o "cloud_viewer.o" "../cloud_viewer.cpp"
+Finished building: ../cloud_viewer.cpp
+ 
+Building target: cloud_viewer
+Invoking: GCC C++ Linker
+g++ -L/usr/local/pcl-1-8/lib -L/usr/lib/x86_64-linux-gnu -L/usr/local/vtk-6-3/lib -o "cloud_viewer"  ./cloud_viewer.o   -lpcl_visualization -lpcl_io -lpcl_common -lboost_system -lvtkCommonDataModel-6.3 -lvtkCommonMath-6.3 -lvtkCommonCore-6.3 -lvtkCommonExecutionModel-6.3 -lvtkRenderingLOD-6.3 -lvtkFiltersSources-6.3 -lvtkRenderingCore-6.3
+Finished building target: cloud_viewer
+ 
+
+17:16:07 Build Finished (took 10s.889ms)
+

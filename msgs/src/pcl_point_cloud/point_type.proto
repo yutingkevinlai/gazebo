@@ -1,0 +1,16 @@
+package pcl.msgs;
+
+message PointXYZ
+{
+	required float x  = 1;
+	required float y = 2;
+	required float z = 3;
+}
+
+message PointXYZL
+{
+	required float x  = 1;
+	required float y = 2;
+	required float z = 3;
+	required uint32 label = 4;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Arm_Control3_RA605/user_part/robot_position_controll.c&apos; to &apos;robot_position_controll.cpp&apos;" description="Rename resource &apos;robot_position_controll.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="user_part/robot_position_controll.c" name="robot_position_controll.cpp" stamp="1492566212464" updateReferences="true"/>
+</session>
