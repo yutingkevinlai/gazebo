@@ -230,8 +230,23 @@ void EvaluationPlatform::_onUpdate( const common::UpdateInfo & /*_info*/ )
 			{
 				msgs::Request only_snapshot;
 				only_snapshot.set_id( 1 );
+				std::stringstream ss;
+				ss << std::to_string(m_total_snapshot) << ' ';
+
+				for( unsigned int i=0; i<m_models_name.size(); i++ )
+				{
+					math::Pose models_poses = m_world->GetModel( m_models_name[ i ] )->GetWorldPose();
+					// obtain models poses in camera coordinate
+					models_poses.pos = models_poses.pos - math::Vector3(-0.10664, 0.075, 0.0);
+					//std::cout << "models poses in world " << i << " : "<< models_poses.pos << std::endl;
+					models_poses.pos.x = models_poses.pos.x * 6001.5;
+					models_poses.pos.y = models_poses.pos.y * 6400;
+					//std::cout << "models poses in camera " << i << " : " << models_poses.pos << std::endl;
+					ss << abs(models_poses.pos.x) << ' ' << abs(models_poses.pos.y) << ' ';
+				}
+				//std::cout << "total messges : " << ss.str() << std::endl;
 				only_snapshot.set_request( "onlysnapshot_mode" );
-				only_snapshot.set_data(std::to_string(m_total_snapshot));
+				only_snapshot.set_data(ss.str());
 				m_snapshot_publisher_ptr->Publish( only_snapshot );
 			}
 
@@ -251,7 +266,7 @@ void EvaluationPlatform::_onUpdate( const common::UpdateInfo & /*_info*/ )
 
 			m_wld_to_cam_mat = m_sensor_pose.Inverse();
 
-			// allow subscrber
+			// allow subscriber
 			m_skip_receive_result = false;
 
 			// ******************************** //
@@ -1202,11 +1217,12 @@ void EvaluationPlatform::_environmentConstruction()
 void EvaluationPlatform::_rethrowForOnlySnapshot( ConstMsgsRequestPtr &_msgs )
 {
 	// if the number of snapshot reach the desired number
-	if(stoi(_msgs->data())==m_total_snapshot)
+	if(stoi(_msgs->data()) == m_total_snapshot)
 	{
 		m_current_snapshot = stoi(_msgs->data());
 		return;
 	}
+
 	for( unsigned int i = 0; i < m_models_name.size(); i++ )
 	{
 		physics::ModelPtr cur_model = m_world->GetModel( m_models_name[ i ] );
@@ -1270,8 +1286,8 @@ void EvaluationPlatform::_throwObjects()
 			}
 
 			// randomize the pose
-			int angleIndex = math::Rand::GetIntUniform( 0, 7 );			//0~7   0~359   0=0 ; 1=45 ... 7=315
-			int axisIndex = math::Rand::GetIntUniform( 0, 1 );         //0 = x-axis  ; 1 = y-axis
+			int angleIndex = math::Rand::GetIntUniform( 0, 7 );		//0~7   0~359   0=0 ; 1=45 ... 7=315
+			int axisIndex = math::Rand::GetIntUniform( 0, 1 );		//0 = x-axis  ; 1 = y-axis
 			math::Vector3 rotate_axis;
 			if( axisIndex == 1 )
 				rotate_axis = math::Vector3( 0, 1, 0 );
@@ -1329,6 +1345,7 @@ void EvaluationPlatform::_initParameters( const std::string &_filename )
         //std::cout << "m_snapshot_mode : " << m_snapshot_mode << std::endl;
         m_total_snapshot = pt.get< int >( "evaluation_platform.snapshot.total_snapshot", 0 );
         //std::cout << "m_total_snapshot : "<< m_total_snapshot << std::endl;
+
         // ************************ //
         // read stacking parameters //
         // ************************ //

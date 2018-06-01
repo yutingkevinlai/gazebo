@@ -180,6 +180,7 @@ private:
 	// for checking file number
 	int m_current_file_number = 0;
 
+	float m_msgs[19] = {0};
 
 	// ********************* //
 	// for idea segmentation //
@@ -191,14 +192,10 @@ private:
 	// rayconf frame buffer
 	unsigned char *m_segment_buffer;
 
-
 	// ********** //
 	// parameters //
 	// ********** //
 	bool m_use_ideal_segmentation;
-
-
-
 };
 
 // Register this plugin with the simulator

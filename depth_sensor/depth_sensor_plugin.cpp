@@ -232,7 +232,24 @@ void DepthSensorPlugin::_onlySnapshot( ConstMsgsRequestPtr &_msgs )
 {
 	cout << COUT_PREFIX << "ONLY SNAPSHOT MODE" << endl;
 	m_snapshot = true;
-	m_total_snapshot = std::stoi(_msgs->data());
+	std::stringstream ss;
+	ss << _msgs->data();
+	for(int i=0; i<19; i++)
+	{
+		ss >> m_msgs[i];
+		//std::cout << "m_msgs " << i << " : " << m_msgs[i] << std::endl;
+	}
+	// check if the msgs exceed the boundary of the image
+	for(int i=0; i<9; i++)
+	{
+		if((m_msgs[2*i+1]>1280)||(m_msgs[2*i+1]<0)||(m_msgs[2*i+2]>960)||(m_msgs[2*i+2]<0))
+		{
+			m_msgs[2*i+1] = 0;
+			m_msgs[2*i+2] = 0;
+			std::cout << "the object is out of image boundary...setting the coordinate to (0,0)" << std::endl;
+		}
+	}
+	m_total_snapshot = m_msgs[0];
 }
 
 void DepthSensorPlugin::_takePicture( ConstMsgsRequestPtr &_msgs )
@@ -585,9 +602,6 @@ void DepthSensorPlugin::_saveSensorData()
 	// save sensor data //
 	// **************** //
 
-	// check the total files in the directory (ONLY ONCE!!!)
-	if(m_current_file_number == 0) { _check_file_number(); }
-
  	// get sensor info
 	int width = m_rgb_rt->getWidth();
 	int height = m_rgb_rt->getHeight();
@@ -595,20 +609,23 @@ void DepthSensorPlugin::_saveSensorData()
 	// ******** //
 	// save RGB //
 	// ******** //
-	boost::filesystem::create_directory( "only_snapshot/rgb" );
+
 	// save rgb picture from gazebo's sensor
 	if(m_snapshot)
 	{
+		// check the total files in the directory (ONLY ONCE!!!)
+		if(m_current_file_number == 0) { _check_file_number(); }
+		boost::filesystem::create_directory( "only_snapshot/rgb" );
 		std::cout << COUT_PREFIX << "Snapshot progress = " << m_save_count << " / " << m_total_snapshot << std::endl;
 		ss.clear();
 		ss.str( "" );
 		// get the path for saving
 		save_string.clear();
 		m_save_file_number = m_save_count + m_current_file_number;
-		ss << "only_snapshot/rgb/rgb_sensor_" << m_save_file_number << ".png";
+		ss << "only_snapshot/rgb/rgb_" << m_save_file_number << ".png";
 		save_string = ss.str();
-		std::cout << "save rgb = " << save_string << endl;
 		this->m_camera_sensor->SaveFrame( save_string );
+		std::cout << "save rgb = " << save_string << endl;
 	}
 	else
 	{
@@ -789,10 +806,11 @@ void DepthSensorPlugin::_saveSensorData()
 		cloud[idx].z += m_noise.at<float>( idx / width, idx % width ) * 3;
 	}
 
-
+	// TODO : If you want to save the point cloud, just uncomment this part
 	// ********************* //
 	// save Point Cloud Data //
 	// ********************* //
+	/*
 	boost::filesystem::create_directory( "only_snapshot/pcd" );
 	// save pcd file from gazebo's sensor
 	if(m_snapshot)
@@ -810,7 +828,7 @@ void DepthSensorPlugin::_saveSensorData()
 	{
 		pcl::io::savePCDFileBinary( "pointcloud.pcd", cloud );
 	}
-
+	 */
 
 	//pcl::io::savePCDFileBinary( "pointcloud_noise.pcd", cloud );
 

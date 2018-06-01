@@ -60,7 +60,7 @@ private:
     // Pointer to the update event connection
     event::ConnectionPtr m_update_connection;
 
-    // contain the name of evey target models
+    // contain the name of every target models
     std::vector< std::string > m_models_name;
 
     // whether the model is being estimated, in the same order of m_models_name
@@ -71,6 +71,9 @@ private:
 
     // store 'World to Camera Matrix' at the time when sensor take picture
     math::Matrix4 m_wld_to_cam_mat;
+
+
+
 
     // transport::Node
 	transport::NodePtr m_node_ptr;
