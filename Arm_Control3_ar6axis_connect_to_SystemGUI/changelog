@@ -1,3 +1,0 @@
-Arm_Control3_ar6axis 相較於Arm_Control2_ar6axis
-刪了一些不必要的程式碼,並且整理,加上註解,刪掉debug訊息
-加上了與rcl溝通的部份
