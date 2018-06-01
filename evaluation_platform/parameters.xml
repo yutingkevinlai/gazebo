@@ -96,12 +96,26 @@
 
 		</target_model_4>
 
+		<target_model_5>
+			<sdf_file_path> /home/kevin/research/gazebo/evaluation_platform/models/iron_100_50/model.sdf </sdf_file_path>
+			<proportion> 0 </proportion>
+
+			<translation_threshold> 0.0025 </translation_threshold>
+			<quaternion_degree_threshold> 10 </quaternion_degree_threshold>
+
+			<cylinder_like enable="true">
+				<cylinder_axis> 1 0 0 </cylinder_axis>
+				<axis_deviation_threshold> 30 </axis_deviation_threshold>
+			</cylinder_like>
+
+		</target_model_5>
+
 		<check_steady_interval> 0.1 </check_steady_interval>
 		<consecutive_steady_threshold> 5 </consecutive_steady_threshold>
 		<linear_vel_threshold> 0.04 </linear_vel_threshold>
 		<width> 3 </width>
 		<height> 3 </height>
-		<layers> 1 </layers>
+		<layers> 3 </layers>
 		<distance_between_objects> 0.07 </distance_between_objects>
 		<throwing_height> 0.15 </throwing_height>
 	</stacking>
@@ -113,8 +127,8 @@
 
 	<!-- for only take pictures of the scenes-->
 	<snapshot>
-		<snapshot_mode> 1 </snapshot_mode>
-		<total_snapshot> 2 </total_snapshot>
+		<snapshot_mode> 0 </snapshot_mode>
+		<total_snapshot> 0 </total_snapshot>
 	</snapshot> 
 	<!-- for only take pictures of the scenes-->
 
